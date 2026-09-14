@@ -218,14 +218,28 @@
   }
   .hero h1 .dot-period{color:var(--accent);}
   .hero .role-line{
+    position:relative;
+    overflow:hidden;
     margin-top:24px;
     font-family:'JetBrains Mono',monospace;
     font-size:13.5px;
     color:var(--text-dim);
     display:flex;flex-wrap:wrap;gap:0;
+    width:fit-content;
+    padding:12px 20px;
+    border-radius:100px;
+    background:linear-gradient(155deg, rgba(90,130,255,0.16), rgba(43,75,255,0.04) 55%, rgba(255,255,255,0.02)), rgba(15,15,15,0.5);
+    border:1px solid rgba(120,150,255,0.3);
+    box-shadow:0 14px 32px -20px rgba(43,75,255,0.55), inset 0 1px 0 rgba(255,255,255,0.05);
   }
-  .hero .role-line span{padding:0 12px;border-left:1px solid var(--border-strong);}
+  .hero .role-line::after{
+    content:"";position:absolute;top:-80%;left:-15%;width:35%;height:260%;
+    background:linear-gradient(120deg, rgba(255,255,255,0.10), rgba(255,255,255,0) 65%);
+    transform:rotate(18deg);pointer-events:none;
+  }
+  .hero .role-line span{position:relative;z-index:1;padding:0 12px;border-left:1px solid var(--border-strong);}
   .hero .role-line span:first-child{padding-left:0;border-left:none;color:var(--accent-2);}
+  @media (max-width:520px){.hero .role-line{width:auto;}}
   .hero .intro{
     margin-top:26px;max-width:46ch;color:var(--text-dim);font-size:15.5px;
   }
